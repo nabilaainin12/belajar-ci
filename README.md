@@ -135,3 +135,44 @@ belajar-ci/
 ├── spark                     → CLI bawaan CodeIgniter
 └── README.md                 → Dokumentasi proyek ini
 ```
+
+---
+
+## 🚀 Deploy ke GitHub
+
+_Inisialisasi Git di folder proyek_ (jika belum)
+
+```
+  bash
+  git init
+```
+
+_Tambahkan semua file ke staging_
+
+```
+  bash
+  git add .
+```
+
+_Commit perubahan awal_
+
+```
+  bash
+  git commit -m "Inisialisasi proyek toko online CI5"
+```
+
+_Hubungkan ke repository GitHub_
+
+```
+  Buat repository di GitHub terlebih dahulu (misal: https://github.com/username/toko-ci5)
+  bash
+  git remote add origin https://github.com/username/toko-ci5.git
+```
+
+_Push ke GitHub_
+
+```
+  bash
+  git branch -M main
+  git push -u origin main
+```
