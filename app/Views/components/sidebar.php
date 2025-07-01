@@ -29,6 +29,14 @@
                     <span>Produk</span>
                 </a>
             </li>
+            <?php if (session()->get('role') === 'admin') : ?>
+            <li class="nav-item">
+                <a class="nav-link" href="<?= base_url('diskon') ?>">
+                    <i class="bi bi-percent"></i>
+                    <span>Diskon</span>
+                </a>
+            </li>
+<?php endif; ?>
             <li class="nav-item">
                 <a class="nav-link <?php echo (uri_string() == 'profile') ? "" : "collapsed" ?>" href="profile">
                     <i class="bi bi-person"></i>

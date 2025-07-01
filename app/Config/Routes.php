@@ -46,6 +46,15 @@ $routes->get('keranjang', 'TransaksiController::index', ['filter' => 'auth']);
 $routes->get('get-location', 'TransaksiController::getLocation', ['filter' => 'auth']);
 $routes->get('get-cost', 'TransaksiController::getCost', ['filter' => 'auth']);
 
+$routes->group('', ['filter' => 'auth'], function($routes) {
+    $routes->get('diskon', 'DiskonController::index');
+    $routes->get('diskon/create', 'DiskonController::create');
+    $routes->post('diskon/store', 'DiskonController::store');
+    $routes->get('diskon/edit/(:num)', 'DiskonController::edit/$1');
+    $routes->post('diskon/update/(:num)', 'DiskonController::update/$1');
+    $routes->get('diskon/delete/(:num)', 'DiskonController::delete/$1');
+});
+
 $routes->get('profile', 'Home::profile', ['filter' => 'auth']);
 $routes->get('contact', 'FaqController::index', ['filter' => 'auth']);$routes->get('faq', 'FaqController::index', ['filter' => 'auth']);
 $routes->get('profil', 'FaqController::index', ['filter' => 'auth']);
