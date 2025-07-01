@@ -71,15 +71,67 @@ Proyek ini adalah platform toko online yang dibangun menggunakan [CodeIgniter 4]
 
 Proyek menggunakan struktur MVC CodeIgniter 4:
 
-- app/Controllers - Logika aplikasi dan penanganan request
-  - AuthController.php - Autentikasi pengguna
-  - ProdukController.php - Manajemen produk
-  - TransaksiController.php - Proses transaksi
-- app/Models - Model untuk interaksi database
-  - ProductModel.php - Model produk
-  - UserModel.php - Model pengguna
-- app/Views - Template dan komponen UI
-  - v_produk.php - Tampilan produk
-  - v_keranjang.php - Halaman keranjang
-- public/img - Gambar produk dan aset
-- public/NiceAdmin - Template admin
+```
+belajar-ci/
+├── app/
+│   ├── Config/                → Konfigurasi dasar: routing, database, dll
+│   ├── Controllers/           → Logika utama aplikasi (controller)
+│   │   ├── ApiController.php              → Menyediakan endpoint untuk API
+│   │   ├── AuthController.php             → Autentikasi pengguna (login/logout)
+│   │   ├── BaseController.php             → Kelas dasar untuk semua controller
+│   │   ├── ContactController.php          → Menampilkan halaman kontak
+│   │   ├── DiskonController.php           → Kelola diskon per tanggal
+│   │   ├── FaqController.php              → Menampilkan halaman FAQ
+│   │   ├── Home.php                       → Halaman utama dan profil pengguna
+│   │   ├── ProdukCategoryController.php   → Kelola kategori produk
+│   │   ├── ProdukController.php           → CRUD data produk dan PDF export
+│   │   └── TransaksiController.php        → Keranjang, checkout, transaksi
+│   ├── Models/                → Model untuk mengakses database
+│   │   ├── ProductModel.php
+│   │   ├── DiskonModel.php
+│   │   ├── UserModel.php
+│   │   ├── CategoryModel.php
+│   │   ├── TransactionModel.php
+│   │   └── TransactionDetailModel.php
+│   ├── Views/                 → File tampilan UI (HTML + PHP)
+│   │   ├── v_produk.php           → Halaman produk
+│   │   ├── v_diskon.php           → Halaman diskon
+│   │   ├── v_keranjang.php        → Halaman keranjang
+│   │   ├── v_checkout.php         → Halaman checkout
+│   │   ├── v_profile.php          → Halaman riwayat transaksi user
+│   │   ├── v_login.php            → Halaman login
+│   │   ├── v_produkPDF.php        → Tampilan PDF produk
+│   │   ├── v_produkCategory.php   → Kategori produk
+│   │   ├── layout.php             → Layout utama
+│   │   └── components/            → Header, Sidebar, Footer
+│   │       ├── header.php
+│   │       ├── sidebar.php
+│   │       └── footer.php
+│   ├── Database/
+│   │   ├── Migrations/        → Struktur tabel database (Product, User, Transaksi, dst)
+│   │   │   ├── 2025-05-22-061658_User.php
+│   │   │   ├── 2025-05-22-061710_Product.php
+│   │   │   ├── 2025-05-22-061719_Transaction.php
+│   │   │   ├── 2025-05-22-061726_TransactionDetail.php
+│   │   │   ├── 2025-05-29-124220_ProductCategory.php
+│   │   │   └── 2025-07-01-032242_Diskon.php
+│   │   └── Seeds/             → Seeder untuk data awal
+│   │       ├── ProductSeeder.php
+│   │       ├── UserSeeder.php
+│   │       ├── DiskonSeeder.php
+│   │       └── ProductCategorySeeder.php
+│   ├── Filters/              → Filter akses seperti login (Auth.php, Redirect.php)
+│   ├── Helpers/, Language/, Libraries/ → Folder bawaan CI4
+│   └── ThirdParty/           → Bisa diisi library tambahan
+├── public/
+│   ├── index.php             → Entry point aplikasi
+│   ├── img/                  → Folder upload gambar produk
+│   ├── NiceAdmin/            → Asset UI dari template NiceAdmin (css, js, plugins)
+│   └── dashboard-toko/       → File tambahan dashboard admin
+├── writable/                 → Cache, logs, dan upload lainnya
+├── vendor/                   → Dependency dari composer
+├── .env                      → Konfigurasi lingkungan (API key, DB, dll)
+├── composer.json             → Konfigurasi package PHP
+├── spark                     → CLI bawaan CodeIgniter
+└── README.md                 → Dokumentasi proyek ini
+```
